@@ -10,7 +10,7 @@ public class PenguinTest {
     public void testItLosesFeathers() {
         Penguin penguin = new Penguin(5);
         penguin.molt();
-        assertEquals(4, penguin.numberOfFeathers);
+        assertEquals(4, penguin.getNumberOfFeathers());
     }
 
 
@@ -18,6 +18,6 @@ public class PenguinTest {
     public void testItCanSwim() {
         Penguin penguin = new Penguin(5);
         penguin.swim();
-        assertEquals("in the water", penguin.currentLocation);
+        assertEquals("in the water", penguin.getCurrentLocation());
     }
 }
