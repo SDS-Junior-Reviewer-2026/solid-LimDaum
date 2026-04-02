@@ -2,23 +2,20 @@ package weather;
 
 public class WeatherTracker {
     String currentConditions;
-    Phone phone;
-    Email email;
-
-    public WeatherTracker() {
-        phone = new Phone();
-        email = new Email();
-    }
+    Media media;
 
     public void setCurrentConditions(String weatherDescription) {
         this.currentConditions = weatherDescription;
-        if (weatherDescription == "rainy") {
-            String alert = phone.generateWeatherAlert(weatherDescription);
-            System.out.print(alert);
+
+        switch(weatherDescription) {
+            case "rainy" -> media = new Phone();
+            case "sunny" -> media = new Email();
         }
-        if (weatherDescription == "sunny") {
-            String alert = email.generateWeatherAlert(weatherDescription);
-            System.out.print(alert);
-        }
+
+        printWeatherAlert(media);
+    }
+
+    public void printWeatherAlert(Media media) {
+        System.out.print(media.generateWeatherAlert(currentConditions));
     }
 }
