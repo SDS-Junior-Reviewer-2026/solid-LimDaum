@@ -1,6 +1,9 @@
 package greeter;
 
 import greeter.Greeter;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GreeterTest {
     @Test
@@ -28,5 +31,12 @@ public class GreeterTest {
         Greeter greeter = new Greeter();
         greeter.setFormality("intimate");
         assertEquals("Hello Darling!", greeter.greet());
+    }
+
+    @Test
+    public void testSaysHelloGoHome() {
+        Greeter greeter = new Greeter();
+        greeter.setFormality("gohome");
+        assertEquals("I wanna go home...", greeter.greet());
     }
 }
